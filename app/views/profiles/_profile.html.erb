@@ -1,27 +1,15 @@
-<div id="<%= dom_id profile %>">
-  <p>
-    <strong>First name:</strong>
-    <%= profile.first_name %>
+<div class="jumbotron">
+  <h1 class="display-4">
+  	<%= profile.first_name %>
+  	<%= profile.last_name %>
+  </h1>
+  <p class="lead">
+  	Email: <%= profile.email %> </br>
+  	Phone: <%= profile.phone %> </br>
+  	Company: <%= profile.company %>
   </p>
-
-  <p>
-    <strong>Last name:</strong>
-    <%= profile.last_name %>
+  <hr class="my-4">
   </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= profile.email %>
-  </p>
-
-  <p>
-    <strong>Phone:</strong>
-    <%= profile.phone %>
-  </p>
-
-  <p>
-    <strong>Company:</strong>
-    <%= profile.company %>
-  </p>
-
 </div>
+
+<div id="<%= dom_id profile %>">
