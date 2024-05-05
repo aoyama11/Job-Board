@@ -5,7 +5,7 @@
 <%= render @profile %>
 
 <div>
-  <%= link_to "Edit", edit_profile_path(@profile), class:"btn btn-secondary" %>
-  <%= link_to "Back", profiles_path, class:"btn btn-secondary" %>
-  <%= button_to "Destroy", @profile, method: :delete, class:"btn btn-secondary" %>
+  <%= link_to "Edit", edit_profile_path(@profile) %>
+  <%= link_to "Back", profiles_path %>
+  <%= button_to "Destroy", @profile, method: :delete %>
 </div>

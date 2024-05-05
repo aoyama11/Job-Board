@@ -72,7 +72,7 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "job_board_production"
 
   config.action_mailer.perform_caching = false
-
+sftp://ubuntu:@3.144.217.210//home/ubuntu/job-board/config/environments/production.rb
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
@@ -94,4 +94,7 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+  
+  #config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
 end
