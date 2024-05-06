@@ -35,6 +35,10 @@
     <%= form.label :company, style: "display: block" %>
     <%= form.text_field :company %>
   </div>
+  
+  <div>
+    <%= form.number_field :user_id, id: :friend_user_id, class: "form-control", value: current_user.id, type: :hidden %>
+  </div>
 
   <div>
     <%= form.submit %>

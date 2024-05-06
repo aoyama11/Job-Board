@@ -3,11 +3,15 @@
 
 <div id="profiles">
   <% @profiles.each do |profile| %>
+  <% if profile.user == current_user %>
     <%= render profile %>
-    <p>
+     <p>
       <%= link_to "Show this profile", profile %>
-    </p>
+     </p>
+  <% end %>
   <% end %>
 </div>
 
-<%= link_to "New profile", new_profile_path %>
+<% unless current_user.profiles.any? %>
+	<%= link_to "New profile", new_profile_path %>
+<% end %>

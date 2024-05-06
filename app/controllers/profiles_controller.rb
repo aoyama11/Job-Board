@@ -1,27 +1,26 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+  #before_action :correct_user
 
-  # GET /profiles or /profiles.json
   def index
     @profiles = Profile.all
   end
 
-  # GET /profiles/1 or /profiles/1.json
   def show
   end
 
-  # GET /profiles/new
   def new
-    @profile = Profile.new
+    #@profile = Profile.new
+    @profile = current_user.profiles.build
   end
 
-  # GET /profiles/1/edit
   def edit
   end
 
-  # POST /profiles or /profiles.json
   def create
-    @profile = Profile.new(profile_params)
+    #@profile = Profile.new(profile_params)
+    @profile = current_user.profiles.build(profile_params)
 
     respond_to do |format|
       if @profile.save
@@ -34,7 +33,6 @@ class ProfilesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /profiles/1 or /profiles/1.json
   def update
     respond_to do |format|
       if @profile.update(profile_params)
@@ -47,7 +45,6 @@ class ProfilesController < ApplicationController
     end
   end
 
-  # DELETE /profiles/1 or /profiles/1.json
   def destroy
     @profile.destroy!
 
@@ -56,15 +53,18 @@ class ProfilesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  #def correct_user
+  	#@profile = current_user.profiles.find_by(id: params[:id])
+  	#redirect_to profiles_path, notice: "Not Authorized" if @profile.nil?
+  #end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_profile
       @profile = Profile.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def profile_params
-      params.require(:profile).permit(:first_name, :last_name, :email, :phone, :company)
+      params.require(:profile).permit(:first_name, :last_name, :email, :phone, :company, :user_id)
     end
 end
