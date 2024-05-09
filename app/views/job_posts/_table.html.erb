@@ -1,0 +1,30 @@
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Company</th>
+    <th>Date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @job_posts.each do |job_post| %>
+  <tr>
+    <td><%= job_post.title %></td>
+    <td><%= job_post.company %></td>
+    <td><%= job_post.updated_at %></td>
+    <td><%= button_to "Show", job_post, method: :get, class: "btn btn-primary" %></td>
+  <% if can? :modify, job_post %>
+    <td><%= button_to "Edit", edit_job_post_path(job_post), method: :get, class: "btn btn-primary" %></td>
+    <td>
+    <%= button_to "Destroy", job_post_path(job_post), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+    </td>
+
+
+    <% else %>
+      <th></th>
+      <th></th>
+    <% end %>
+  </tr>
+<% end %>
+</table>

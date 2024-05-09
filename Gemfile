@@ -13,6 +13,9 @@ gem "jbuilder"
 gem "bootstrap"
 gem "sassc-rails"
 gem 'devise', '~> 4.9', '>= 4.9.4'
+gem "tabs_on_rails"
+gem "cancan"
+gem "cancancan"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"

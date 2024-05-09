@@ -1,0 +1,11 @@
+<h2>Job Response for <%=@job_post.title%></h2>
+
+<% if @job_responses.size > 0 %>
+  <%= render(:partial => "table") %>
+<% else %>
+  <p>There are no responses to this job.</p>
+<% end %>
+
+<br />
+
+<%= link_to 'Back to Post', job_post_path(@job_post) %>

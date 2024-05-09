@@ -1,0 +1,20 @@
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Response</th>
+    <th>Date</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @job_responses.each do |job_response| %>
+    <tr>
+      <td><%= job_response.user.email if job_response.user %></td>
+      <td><%= job_response.response[0..50] %></td>
+      <td><%= job_response.updated_at %></td>
+      <td><%= button_to "Show", job_response, method: :get, class: "btn btn-primary" %></td>
+      <td><%= button_to "Applicant Profile", profiles_path(user_id: job_response.user.id), method: :get, class: "btn btn-primary" %></td>
+      <td><%= button_to "Destroy", job_response, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %></td>
+    </tr>
+  <% end %>
+</table>

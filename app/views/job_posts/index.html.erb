@@ -1,0 +1,20 @@
+<% if user_signed_in? %>
+  <%= render(:partial => "/tabs") %>
+<% else %>
+  <h2>Job Posts</h2>
+<% end %>
+
+<% if @job_posts.size > 0 %>
+  <%= render(:partial => "table") %>
+<% else %>
+  <p>There are no jobs posted at this time.</p>
+<% end %>
+
+<br />
+
+<% if can?(:create, JobPost) %>
+  <%= link_to 'New Job Post', new_job_post_path %>
+<% else %>
+  To post jobs you must, <%= link_to "Sign Up", new_user_registration_path %> or <%= link_to "Sign In", new_user_session_path %>
+<% end %>
+
